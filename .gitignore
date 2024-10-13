@@ -1,0 +1,6 @@
+.idea
+ignore
+*.pyc
+*.pem
+venv_lorem_book_cipher
+testvenv
