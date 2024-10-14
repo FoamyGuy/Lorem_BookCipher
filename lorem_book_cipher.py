@@ -115,9 +115,9 @@ class LoremBookCipher(BookCipher):
 if __name__ == '__main__':
 
     seed = 23894756
-
     lbc = LoremBookCipher(seed)
     print(lbc.book_str)
+
     cipher_text_list = lbc.encrypt("secret message")
     print(cipher_text_list)
 

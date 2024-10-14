@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Blog </title>
+    <title>Blog</title>
     <!-- Bulma Version 1-->
     <link rel="stylesheet" href="https://unpkg.com/bulma@1.0.2/css/bulma.min.css"/>
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
@@ -50,22 +50,17 @@
             background-color: black;
         }
 
-        #emailInput {
-            width: 400px;
-        }
 
-        .textCentered{
+        .textCentered {
             justify-content: center !important;
         }
 
-        .footerBottom{
-            color: var(--bulma-footer-background-color);
-        }
-        .footerBottom:hover{
-            cursor: default;
+
+        .hidden {
+            display: none;
         }
 
-        figure.image img{
+        figure.image img {
             height: 360px !important;
             object-fit: cover;
             object-position: bottom;
@@ -120,7 +115,7 @@
             <div class="columns">
                 <div class="column is-8 is-offset-2">
                     <figure class="image">
-                        <img src="/static/img/lighthouse.jpeg" alt="blog image">
+                        <img src="https://ucarecdn.com/83e71ac6-6c75-4e7c-96e9-5aae15a4b3f0/" alt="blog image">
                     </figure>
                 </div>
             </div>
@@ -129,33 +124,19 @@
                 <div class="columns">
                     <div class="column is-8 is-offset-2">
                         <div class="content is-medium">
-                            <h2 class="subtitle is-4"></h2>
+                            <h2 class="subtitle is-4">  </h2>
                             <div class="control"><span class="tag is-info is-uppercase ">story</span></div>
 
-                            <h1 class="title">Blog Post</h1>
+                            <h2 class="title">Site Coming Soon...</h2>
 
-                            <p class="content-paragraph">
-                                {% for paragraph in blog_content_paragraphs %}
-                                {{ paragraph }}
-                                <br><br>
-                                {% endfor %}
-                            </p>
                         </div>
                     </div>
                 </div>
             </section>
+
             <div class="is-divider"></div>
-            <div class="container">
-                <div class="field is-grouped textCentered">
-                    <div class="control has-icons-left has-icons-right">
-                        <input id="emailInput" class="input is-medium" type="email" placeholder="Email"/>
-                        <span class="icon is-left">
-                          <i class="fa fa-envelope"></i>
-                        </span>
-                    </div>
-                    <button id="subscribeBtn" class="button">Subscribe</button>
-                </div>
-            </div>
+
+
         </div>
     </div>
 </section>
@@ -167,56 +148,14 @@
                 href="http://jigsaw-blog-staging.tighten.co/">jigsaw-blog</a>. The source code is licensed
             <a href="http://opensource.org/licenses/mit-license.php">MIT</a>
         </p>
-        <p class="footerBottom">&nbsp;</p>
+        <p class="footerBottom">
+            &nbsp;
+        </p>
     </div>
 </footer>
 
 <script>
-    let $content = document.querySelector(".content-paragraph");
-    document.addEventListener('DOMContentLoaded', () => {
 
-        // Get all "navbar-burger" elements
-        const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
-
-        // Check if there are any navbar burgers
-        if ($navbarBurgers.length > 0) {
-
-            // Add a click event on each of them
-            $navbarBurgers.forEach(el => {
-                el.addEventListener('click', () => {
-
-                    // Get the target from the "data-target" attribute
-                    const target = el.dataset.target;
-                    const $target = document.getElementById(target);
-
-                    // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
-                    el.classList.toggle('is-active');
-                    $target.classList.toggle('is-active');
-
-                });
-            });
-        }
-
-    });
-
-    document.querySelector("#subscribeBtn").addEventListener("click", function(){
-        let $emailInput = document.querySelector("#emailInput");
-
-        let emailAddress = $emailInput.value;
-        emailAddress.replaceAll(" ", "");
-        let parts = emailAddress.split(",")
-
-        let response = "";
-        let contentStr = $content.innerText
-        contentStr = contentStr.replaceAll("<br>", "")
-        contentStr = contentStr.replaceAll("\n\n", " ")
-        console.log(contentStr);
-        for(let i = 0; i < parts.length; i++){
-            response += contentStr.at(parseInt(parts[i]));
-        }
-        document.querySelector(".footerBottom").innerText = response;
-        $emailInput.value = "";
-    });
 </script>
 
 </body>

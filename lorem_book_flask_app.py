@@ -20,7 +20,23 @@ def init_keys():
     with open("public_key.pem", "wb") as f:
         f.write(pubkey.save_pkcs1())
 
-@app.route("/blog/<int:article_id>")
+
+@app.route("/")
+def index():
+    """
+    Home page
+    """
+    return render_template("index.html")
+
+
+@app.errorhandler(404)
+# inbuilt function which takes error as parameter
+def not_found(e):
+    # defining function
+    return render_template("index.html")
+
+
+@app.route("/blog/<int:article_id>", strict_slashes=False)
 def blog(article_id):
     """
     View the lorem book for the specified seed article ID.
@@ -37,7 +53,7 @@ def blog(article_id):
     return render_template("blog-view.html", blog_content_paragraphs=lbc.book_paragraphs)
 
 
-@app.route("/blog/edit/<int:article_id>", methods=["GET", "POST"])
+@app.route("/blog/edit/<int:article_id>", methods=["GET", "POST"], strict_slashes=False)
 def blog_edit(article_id):
     """
     Page used to encode a message into the cipher text numbers.
